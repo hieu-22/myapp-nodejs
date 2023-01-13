@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="css/homepage.css">
+    <script src="js/homepage.js" defer></script>
+</head>
+<body>
+    <header id="nav-wrapper">
+        <nav id="nav">
+          <div class="nav left">
+            <span class="gradient skew"><h1 class="logo un-skew"><a href="#home">Logo Here</a></h1></span>
+            <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
+          </div>
+          <div class="nav right">
+            <a href="#home" class="nav-link active"><span class="nav-link-span"><span class="u-nav">Home</span></span></a>
+            <a href="#about" class="nav-link"><span class="nav-link-span"><span class="u-nav">About</span></span></a>
+            <a href="#work" class="nav-link"><span class="nav-link-span"><span class="u-nav">Work</span></span></a>
+            <a href="#contact" class="nav-link"><span class="nav-link-span"><span class="u-nav">Contact</span></span></a>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <section id="home">
+              <h2>Bands List</h2>
+              <table class="w3-table-all w3-hoverable">
+                <thead>
+                  <tr class="title-bar">
+                    <th>Band ID</th>
+                    <th>Band Name</th>
+                    <th>Albums's Name</th>
+                    <th>Release Year</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% for(let i=0; i < dataBands.length; i++) { %>
+                  <tr>
+                    <td><%= dataBands[i][`Band ID`] %></td>
+                    <td><%= dataBands[i][`Band Name`]  %></td>
+                    <td><%= dataBands[i][`Albums's Name`]  %></td>
+                    <td><%= dataBands[i][`Release Year`]  %></td>
+                    <td style="display: flex; justify-content: space-around">
+                      <a href="bands/details/<%= dataBands[i][`Band ID`] %>" target="_blank" style="color: white;"><button type="submit">Details</button></a>
+                      
+                      <form action="/edit-bands/<%= dataBands[i][`Band ID`] %>" method="get" target="_blank">
+                        <button type="submit">Edit</button>
+                      </form>
+                     
+                      <form action="/delete-band" method="post">
+                        <input type="text" hidden name="bandId" value="<%= dataBands[i][`Band ID`] %> ">
+                        <button type="submit">Delete</button>
+                      </form>
+                  </tr>
+                <% } %>
+                </tbody>            
+              </table>
+        </section>
+        <section id="about">
+          <form action="/create-new-band" method="post">
+            <label for="band-Name">Band Name</label>
+            <input type="text" id="band-Name" name="bandName"><br>
+            <label for="Album's-Name">Albums Name</label>
+            <input type="text" id="Album's-Name" name="AlbumName"><br>
+            <label for="release-Year">Release Year</label>
+            <input type="text" id="release-Year" name="releaseYear"><br>
+            <button type="submit">Create your band</button>
+          </form>
+        </section>
+        <section id="work">
+    
+        </section>
+        <section id="contact">
+    
+        </section>
+      </main>
+</body>
+</html>

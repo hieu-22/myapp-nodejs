@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Bands</title>
+    <link rel="stylesheet" href="/css/homepage.css">
+</head>
+<body>
+    <header id="nav-wrapper">
+        <nav id="nav">
+          <div class="nav left">
+            <span class="gradient skew"><h1 class="logo un-skew"><a href="#home">Logo Here</a></h1></span>
+            <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
+          </div>
+          <div class="nav right">
+            <a href="#home" class="nav-link active"><span class="nav-link-span"><span class="u-nav">Home</span></span></a>
+            <a href="#about" class="nav-link"><span class="nav-link-span"><span class="u-nav">About</span></span></a>
+            <a href="#work" class="nav-link"><span class="nav-link-span"><span class="u-nav">Work</span></span></a>
+            <a href="#contact" class="nav-link"><span class="nav-link-span"><span class="u-nav">Contact</span></span></a>
+          </div>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+              <form action="/update-band" method="post">
+                <label for="band-id" hidden>Band Name</label>
+                <input type="text" id="band-id" name="BandId" value="<%= dataUser[0]['Band ID']%>" hidden><br>
+                <label for="band-Name">Band Name</label>
+                <input type="text" id="band-Name" name="bandName" value="<%= dataUser[0]['Band Name']%>"><br>
+                <label for="Album's-Name">Albums Name</label>
+                <input type="text" id="Album's-Name" name="AlbumName" value="<%= dataUser[0][`Albums's Name`]%>"><br>
+                <label for="release-Year">Release Year</label>
+                <input type="text" id="release-Year" name="releaseYear" value="<%= dataUser[0]['Release Year']%>"><br>
+                <button type="submit">Update your band</button>
+              </form>
+        </section>
+        <section id="about">
+          </form>
+        </section>
+        <section id="work">
+    
+        </section>
+        <section id="contact">
+    
+        </section>
+    </main>
+    
+</body>
+</html>
